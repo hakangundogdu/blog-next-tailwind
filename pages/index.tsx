@@ -30,11 +30,11 @@ const Home: NextPage = ({ data }) => {
             const { id, userId, title, body } = post
             return id % 3 == 0 ? (
               <>
-                <Post key={id} userId={userId} title={title} body={body} />
+                <Post id={id} userId={userId} title={title} body={body} />
                 <Banner />
               </>
             ) : (
-              <Post key={id} userId={userId} title={title} body={body} />
+              <Post id={id} userId={userId} title={title} body={body} />
             )
           })}
         </div>
