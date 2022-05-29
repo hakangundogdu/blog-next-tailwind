@@ -22,7 +22,9 @@ const Home: NextPage = ({ data }) => {
       </Head>
 
       <main className="my-8 flex w-full flex-1 flex-col items-center px-20 text-center">
-        <h1 className="text-6xl font-bold text-slate-900">Blog Page</h1>
+        <h1 className="bg-gradient-to-r from-teal-400 to-cyan-500  bg-clip-text py-2 text-6xl font-bold text-transparent">
+          Blog Page
+        </h1>
         <div className="mt-8 flex flex-col items-center ">
           {data.map((post) => {
             const { id, userId, title, body } = post
