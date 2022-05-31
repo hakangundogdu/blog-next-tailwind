@@ -28,13 +28,11 @@ const Home: NextPage = ({ data }) => {
         <div className="mt-8 flex flex-col items-center ">
           {data.map((post) => {
             const { id, userId, title, body } = post
-            return id % 3 == 0 ? (
+            return (
               <>
                 <Post id={id} userId={userId} title={title} body={body} />
-                <Banner />
+                {id % 3 == 0 ? <Banner /> : null}
               </>
-            ) : (
-              <Post id={id} userId={userId} title={title} body={body} />
             )
           })}
         </div>
