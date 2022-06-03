@@ -10,7 +10,7 @@ const Home = () => {
   // const [posts, setPosts] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
 
-  const { posts, loading } = getPosts(pageNumber)
+  const { posts, loading, hasMore, error } = getPosts(pageNumber)
 
   const observer = useRef()
   const lastPostElementRef = useCallback(
@@ -18,13 +18,13 @@ const Home = () => {
       if (loading) return
       if (observer.current) observer.current.disconnect()
       observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
+        if (entries[0].isIntersecting && hasMore) {
           setPageNumber((prevPageNumber) => prevPageNumber + 1)
         }
       })
       if (node) observer.current.observe(node)
     },
-    [loading]
+    [loading, hasMore]
   )
 
   return (
@@ -53,8 +53,11 @@ const Home = () => {
             )
           })}
         </div>
-        <div ref={lastPostElementRef}>{!loading && 'Load More'}</div>
-        <div className="mt-4 text-teal-400">{loading && 'Loading...'}</div>
+        <div ref={lastPostElementRef}>{!loading && hasMore && 'Load More'}</div>
+        <div className="mt-4 text-teal-500">
+          {loading && !error && 'Loading...'}
+        </div>
+        <div className="mt-4 font-bold text-teal-500">{error && 'Error!'}</div>
       </main>
 
       <footer className="flex h-12 w-full items-center justify-center border-t">
