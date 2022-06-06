@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import Home from '../pages/index'
 import Post from '../components/Post'
+import Banner from '../components/Banner'
 
 const mockData = {
   id: 1,
@@ -23,4 +24,10 @@ test('should render title, and body', () => {
 
   expect(title).toBeInTheDocument()
   expect(body).toBeInTheDocument()
+})
+
+test('should render banner', () => {
+  const { getByText } = render(<Banner />)
+  const text = getByText('Ready to dive in?')
+  expect(text).toBeInTheDocument()
 })
