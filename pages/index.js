@@ -38,6 +38,7 @@ const Home = () => {
         <h1 className="bg-gradient-to-r from-teal-400 to-cyan-500  bg-clip-text py-2 text-6xl font-bold text-transparent">
           Blog Page
         </h1>
+
         <div className="mt-8 flex flex-col items-center ">
           {posts.map((post) => {
             const { id, userId, title, body, index } = post
