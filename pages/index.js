@@ -1,7 +1,5 @@
-import { useEffect, useState, useRef, useCallback } from 'react'
-import axios from 'axios'
+import { useState, useRef, useCallback } from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import Post from '../components/Post'
 import Banner from '../components/Banner'
 import getPosts from './api/getPosts'
@@ -9,7 +7,6 @@ import getPosts from './api/getPosts'
 const Home = () => {
   // const [posts, setPosts] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
-
   const { posts, loading, hasMore, error } = getPosts(pageNumber)
 
   const observer = useRef()
