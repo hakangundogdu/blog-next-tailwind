@@ -3,7 +3,7 @@ import { HiOutlineHeart } from 'react-icons/hi'
 const NftCard = () => {
   return (
     <div className=" flex h-screen items-center justify-center bg-slate-900  	 ">
-      <div className="  h-[486px] w-[348px] items-start  rounded-xl border border-slate-600 p-2 transition duration-300 ease-in-out hover:-translate-y-1  ">
+      <div className="  h-[486px] w-[348px] items-start  rounded-2xl border border-slate-600 p-2 transition duration-300 ease-in-out hover:-translate-y-1  ">
         <div className="group relative h-[330x] w-[330px]">
           <div className="overflow-hidden rounded-2xl">
             <img
